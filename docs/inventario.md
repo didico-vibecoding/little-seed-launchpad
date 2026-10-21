@@ -48,6 +48,15 @@ Levantado a partir do HTML original (`claudia-althoff-advocacia.html`) e do manu
 - **Logos**: as logos embutidas no HTML estavam em baixa resolução, com bordas serrilhadas. O cabeçalho agora usa o ícone oficial (recortado do PNG da marca) e o rodapé usa a assinatura oficial "Claudia Althoff — Advocacia e Consultoria Jurídica" (antes era uma versão "Advogada" que não existe no manual).
 - O menu mobile tinha "Como posso ajudar", o desktop não. Mantido assim (o desktop já está cheio), mas agora sai de uma lista única em `src/config/site.ts`.
 
+## ♿ Contraste (opcional)
+
+Dois pares da paleta aprovada ficam abaixo de 4,5:1 em texto pequeno (WCAG AA):
+
+- `ouro-escuro` (#9C7A1C) sobre `off` dá 3,65:1 e sobre `neutro` dá 3,32:1. Usado nos eyebrows e rótulos. Alternativa: **#806316** (5,1:1 e 4,7:1).
+- `texto-sobre-escuro-3` (#8A979D) sobre `petroleo` dá 4,27:1. Usado só na linha de copyright do rodapé. Alternativa: **#95A2A8** (4,9:1).
+
+Mantidos como estão porque fazem parte do visual aprovado; trocar é só mudar o token em `src/styles.css`.
+
 ## 🎨 Ponto de atenção: site × manual da marca
 
 O manual aprovado (2023) define **Montserrat** como tipografia institucional e um azul-marinho mais escuro (**#062333**) com dourado **#E3B523**. O site usa **Cormorant Garamond + Karla** e um petróleo um pouco mais claro (**#1E3540**) com dourado **#DFB646**.

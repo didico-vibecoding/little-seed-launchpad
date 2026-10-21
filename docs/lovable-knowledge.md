@@ -3,6 +3,8 @@
 > Cole a versão em inglês em **Project Settings → Knowledge** no Lovable.
 > A versão em português abaixo é a mesma coisa, para referência.
 
+> Guia visual completo (tokens, componentes, logos, fotos e manual): https://claude.ai/artifact/79mR4LPcScjxqk3EBgz5Zc
+
 ---
 
 ## 🇺🇸 English (paste this into Lovable)
