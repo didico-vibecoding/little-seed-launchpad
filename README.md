@@ -1,24 +1,18 @@
-# Little Seed Launchpad
+# Claudia Althoff Advocacia — site
 
-Projeto em branco por enquanto
+Site institucional + blog da Claudia Althoff Advocacia (Florianópolis/SC), migrado do HTML estático original para TanStack Start + React + Tailwind v4, editável pelo Lovable.
 
-This project was built with [Lovable](https://lovable.dev).
+- Editor no Lovable: https://lovable.dev/projects/062425f8-2a70-453e-b805-f62246ecd01e
+- Design system (tokens): `src/styles.css`
+- Contato, SEO e menu: `src/config/site.ts`
+- Artigos do blog: `src/content/artigos.ts`
+- Componentes do site: `src/components/site/`
+- Knowledge do Lovable (EN + PT): `docs/lovable-knowledge.md`
+- O que está pronto e o que falta: `docs/inventario.md`
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/062425f8-2a70-453e-b805-f62246ecd01e).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Rodar localmente
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+bun install   # ou npm i
+bun run dev   # ou npm run dev
 ```

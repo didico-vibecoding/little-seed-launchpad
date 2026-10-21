@@ -5,27 +5,33 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
+ * ============================================================
+ * CLAUDIA ALTHOFF ADVOCACIA — DESIGN SYSTEM
+ * ============================================================
+ * Extraído do site original (HTML estático) e da marca aprovada.
  *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
+ * Paleta: petróleo + dourado sobre fundos frios e claros.
+ * Tipografia: Cormorant Garamond (títulos, citações) + Karla (texto, UI).
+ * Forma: cantos retos (radius 0), filetes dourados de 1px, losangos como marcadores.
  *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * Regras:
+ * - Todas as cores em oklch (exigência do template Lovable).
+ * - Use SEMPRE os tokens (bg-petroleo, text-ouro-escuro, border-linha...).
+ *   Nunca hex solto nos componentes.
+ * - O site é light-only: não existe modo escuro. Seções escuras usam
+ *   bg-petroleo / bg-petroleo-2 com texto off / texto-sobre-escuro.
+ * ============================================================
  */
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  /* ---------- shadcn (semânticos) ---------- */
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+  --radius-4xl: var(--radius);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -59,77 +65,121 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ---------- marca (utilitários: bg-petroleo, text-ouro...) ---------- */
+  --color-petroleo: var(--petroleo);
+  --color-petroleo-2: var(--petroleo-2);
+  --color-petroleo-3: var(--petroleo-3);
+  --color-ouro: var(--ouro);
+  --color-ouro-claro: var(--ouro-claro);
+  --color-ouro-escuro: var(--ouro-escuro);
+  --color-off: var(--off);
+  --color-neutro: var(--neutro);
+  --color-texto: var(--texto);
+  --color-texto-2: var(--texto-2);
+  --color-linha: var(--linha);
+  --color-linha-escura: var(--linha-escura);
+  --color-texto-sobre-escuro: var(--texto-sobre-escuro);
+  --color-texto-sobre-escuro-2: var(--texto-sobre-escuro-2);
+  --color-texto-sobre-escuro-3: var(--texto-sobre-escuro-3);
+  --color-menu: var(--menu);
+  --color-menu-mobile: var(--menu-mobile);
+
+  /* ---------- tipografia ---------- */
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Karla", system-ui, -apple-system, sans-serif;
+
+  /* Escala fluida (classes: text-nome, text-h1, text-h2...) */
+  --text-nome: clamp(2.4rem, 6.2vw, 4.6rem);
+  --text-nome--line-height: 1;
+  --text-h1: clamp(1.35rem, 2.4vw, 2rem);
+  --text-h1--line-height: 1.1;
+  --text-h2: clamp(1.9rem, 4vw, 3.1rem);
+  --text-h2--line-height: 1.1;
+  --text-quote: clamp(1.25rem, 2.4vw, 1.75rem);
+  --text-quote--line-height: 1.1;
+  --text-quote-lg: clamp(1.5rem, 3.4vw, 2.5rem);
+  --text-quote-lg--line-height: 1.1;
+  --text-titulos: clamp(1.35rem, 3vw, 2.3rem);
+  --text-artigo: clamp(1.35rem, 2.6vw, 1.95rem);
+  --text-artigo--line-height: 1.18;
+  --text-eyebrow: 0.68rem;
+  --text-btn: 0.74rem;
+  --text-nav: 0.72rem;
+
+  /* ---------- tracking (letter-spacing) ---------- */
+  --tracking-eyebrow: 0.24em;
+  --tracking-btn: 0.16em;
+  --tracking-menu: 0.14em;
+  --tracking-nome-sub: 0.42em;
+
+  /* ---------- layout ---------- */
+  --container-site: 1200px;
+
+  /* ---------- sombras ---------- */
+  --shadow-foto: 0 24px 48px oklch(0.315 0.035 230 / 0.14);
+  --shadow-flutuante: 0 10px 28px oklch(0.251 0.024 234.1 / 0.25);
+
+  /* ---------- animação de entrada ---------- */
+  --ease-entrada: cubic-bezier(0.2, 0.8, 0.25, 1);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
+  /* Forma: cantos retos em todo o site */
+  --radius: 0rem;
 
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  /* ---------- paleta da marca ---------- */
+  --petroleo: oklch(0.315 0.035 230); /* #1E3540 — cor institucional */
+  --petroleo-2: oklch(0.363 0.041 229.3); /* #26424F — seção Método, hover */
+  --petroleo-3: oklch(0.42 0.043 226.4); /* #33525F — apoio */
+  --ouro: oklch(0.793 0.135 88.5); /* #DFB646 — destaque, CTA, filetes */
+  --ouro-claro: oklch(0.847 0.117 89.3); /* #EBC96E — dourado sobre fundo escuro */
+  --ouro-escuro: oklch(0.597 0.113 87.1); /* #9C7A1C — dourado legível sobre fundo claro */
+  --off: oklch(0.966 0.003 228.8); /* #F2F4F5 — fundo base */
+  --neutro: oklch(0.934 0.006 223.5); /* #E5EAEC — fundo alternado */
+  --texto: oklch(0.251 0.024 234.1); /* #16242C — texto principal */
+  --texto-2: oklch(0.499 0.024 228); /* #55666E — texto secundário */
+  --linha: oklch(0.892 0.01 222.1); /* #D5DDE0 — divisórias em fundo claro */
+  --linha-escura: oklch(0.847 0.117 89.3 / 0.2); /* ouro-claro 20% — divisórias em fundo escuro */
+  --texto-sobre-escuro: oklch(0.861 0.011 219.6); /* #CAD3D6 — parágrafos em seções escuras */
+  --texto-sobre-escuro-2: oklch(0.797 0.013 221.5); /* #B4BFC3 — rodapé */
+  --texto-sobre-escuro-3: oklch(0.668 0.017 227.1); /* #8A979D — rodapé, linha base */
+  --menu: oklch(0.847 0.015 224.5); /* #C3CFD4 — links do menu desktop */
+  --menu-mobile: oklch(0.914 0.01 222.1); /* #DCE4E7 — links do menu mobile */
+
+  /* ---------- mapeamento shadcn ---------- */
+  --background: var(--off);
+  --foreground: var(--texto);
+  --card: var(--off);
+  --card-foreground: var(--texto);
+  --popover: var(--off);
+  --popover-foreground: var(--texto);
+  --primary: var(--petroleo);
+  --primary-foreground: var(--off);
+  --secondary: var(--neutro);
+  --secondary-foreground: var(--petroleo);
+  --muted: var(--neutro);
+  --muted-foreground: var(--texto-2);
+  --accent: var(--ouro);
+  --accent-foreground: var(--petroleo);
+  --destructive: oklch(0.5 0.182 29.5);
+  --destructive-foreground: var(--off);
+  --border: var(--linha);
+  --input: var(--linha);
+  --ring: var(--ouro);
+  --chart-1: var(--petroleo);
+  --chart-2: var(--ouro);
+  --chart-3: var(--petroleo-3);
+  --chart-4: var(--ouro-escuro);
+  --chart-5: var(--texto-2);
+  --sidebar: var(--petroleo);
+  --sidebar-foreground: var(--off);
+  --sidebar-primary: var(--ouro);
+  --sidebar-primary-foreground: var(--petroleo);
+  --sidebar-accent: var(--petroleo-2);
+  --sidebar-accent-foreground: var(--off);
+  --sidebar-border: var(--linha-escura);
+  --sidebar-ring: var(--ouro);
 }
 
 @layer base {
@@ -137,8 +187,121 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: clamp(1rem, 0.35vw + 0.95rem, 1.06rem);
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ouro);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  section[id],
+  main[id] {
+    scroll-margin-top: 84px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* ============================================================
+   Utilitários do design system
+   ============================================================ */
+
+/* Container padrão: largura máxima 1200px + gutter fluido */
+@utility wrap {
+  width: 100%;
+  max-width: var(--container-site);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 4.5rem);
+}
+
+/* Respiro vertical padrão de seção */
+@utility section-y {
+  padding-block: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+/* Rótulo em caixa alta acima dos títulos */
+@utility eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--ouro-escuro);
+}
+
+/* Filete dourado de 52px sob os títulos */
+@utility filete {
+  width: 52px;
+  height: 1px;
+  background: var(--ouro);
+  margin-block: 1.35rem;
+}
+
+/* Marcador em losango dourado (listas e separadores) */
+@utility losango {
+  flex: none;
+  width: 5px;
+  height: 5px;
+  background: var(--ouro);
+  transform: rotate(45deg);
+}
+
+/* Grade com divisórias de 1px (cards colados) */
+@utility grade-filetes {
+  display: grid;
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+
+/* Entrada suave ao rolar (ver componente <Reveal>) */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s var(--ease-entrada);
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
   }
 }

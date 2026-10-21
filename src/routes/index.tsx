@@ -1,24 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { Autoridade, Hero, Sobre } from "@/components/site/secoes/Abertura";
+import {
+  Atuacao,
+  Confianca,
+  Diferenciais,
+  Metodo,
+  Situacoes,
+} from "@/components/site/secoes/Atuacao";
+import { Conteudo, CtaFinal, Faq, FAQ_SCHEMA } from "@/components/site/secoes/Fechamento";
+
+// Título, descrição e og vêm de __root.tsx (src/config/site.ts).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQ_SCHEMA.map((q) => ({
+            "@type": "Question",
+            name: q.p,
+            acceptedAnswer: { "@type": "Answer", text: q.r },
+          })),
+        }),
+      },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+      <Autoridade />
+      <Sobre />
+      <Atuacao />
+      <Situacoes />
+      <Diferenciais />
+      <Metodo />
+      <Confianca />
+      <Conteudo />
+      <Faq />
+      <CtaFinal />
+    </>
   );
 }

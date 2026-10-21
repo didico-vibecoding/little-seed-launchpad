@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+Read `docs/lovable-knowledge.md` before changing anything: it holds the design system rules, the OAB advertising constraints and the file map. Pending items are tracked in `docs/inventario.md`.

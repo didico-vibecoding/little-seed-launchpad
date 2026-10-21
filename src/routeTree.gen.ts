@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConteudoIndexRouteImport } from './routes/conteudo/index'
+import { Route as ConteudoSlugRouteImport } from './routes/conteudo/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudoIndexRoute = ConteudoIndexRouteImport.update({
+  id: '/conteudo/',
+  path: '/conteudo/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteudoSlugRoute = ConteudoSlugRouteImport.update({
+  id: '/conteudo/$slug',
+  path: '/conteudo/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/conteudo/$slug': typeof ConteudoSlugRoute
+  '/conteudo/': typeof ConteudoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/conteudo/$slug': typeof ConteudoSlugRoute
+  '/conteudo': typeof ConteudoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/conteudo/$slug': typeof ConteudoSlugRoute
+  '/conteudo/': typeof ConteudoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/conteudo/$slug' | '/conteudo/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/conteudo/$slug' | '/conteudo'
+  id: '__root__' | '/' | '/conteudo/$slug' | '/conteudo/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConteudoSlugRoute: typeof ConteudoSlugRoute
+  ConteudoIndexRoute: typeof ConteudoIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudo/': {
+      id: '/conteudo/'
+      path: '/conteudo'
+      fullPath: '/conteudo/'
+      preLoaderRoute: typeof ConteudoIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudo/$slug': {
+      id: '/conteudo/$slug'
+      path: '/conteudo/$slug'
+      fullPath: '/conteudo/$slug'
+      preLoaderRoute: typeof ConteudoSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConteudoSlugRoute: ConteudoSlugRoute,
+  ConteudoIndexRoute: ConteudoIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
