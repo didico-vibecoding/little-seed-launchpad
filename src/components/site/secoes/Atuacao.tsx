@@ -1,6 +1,13 @@
 import { cn } from "@/lib/utils";
 
-import { BotaoWhatsapp, CabecalhoSecao, Eyebrow, ListaLosango, Reveal } from "../primitivos";
+import {
+  BotaoWhatsapp,
+  CabecalhoSecao,
+  Eyebrow,
+  ListaLosango,
+  Reveal,
+  useVisivel,
+} from "../primitivos";
 
 /* ===================== ÁREAS DE ATUAÇÃO ===================== */
 const SUCESSOES = [
@@ -177,23 +184,41 @@ const PILARES = [
 ];
 
 export function Diferenciais() {
+  const { ref, visivel } = useVisivel<HTMLDivElement>();
+
   return (
     <section id="diferenciais" className="section-y">
       <div className="wrap">
         <CabecalhoSecao eyebrow="Diferenciais" titulo="Por que Claudia Althoff" />
-        <Reveal className="grade-filetes grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
-          {PILARES.map((p) => (
-            <article key={p.num} className="bg-off p-[clamp(1.5rem,2.6vw,2.1rem)]">
-              <span className="mb-4 block font-serif text-[1.1rem] tracking-[0.1em] text-ouro-escuro">
+        {/* Os cards entram em sequência (I → IV) quando a grade aparece; as linhas de 1px
+            são o outline de cada card (não o fundo da grade), para não aparecer um bloco
+            cinza antes da entrada. No hover
+            (só em dispositivos com mouse) o card inverte para petróleo. */}
+        <div ref={ref} className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-px p-px">
+          {PILARES.map((p, i) => (
+            <article
+              key={p.num}
+              className={cn(
+                "group bg-off p-[clamp(1.5rem,2.6vw,2.1rem)] outline outline-linha hover:bg-petroleo",
+                "motion-reduce:translate-y-0 motion-reduce:opacity-100",
+                visivel ? "translate-y-0 opacity-100" : "translate-y-[14px] opacity-0",
+              )}
+              style={{
+                transition: `opacity 0.7s ease ${i * 150}ms, translate 0.7s var(--ease-entrada) ${i * 150}ms, background-color 0.3s ease`,
+              }}
+            >
+              <span className="mb-4 block font-serif text-[1.1rem] tracking-[0.1em] text-ouro-escuro transition-colors duration-300 group-hover:text-ouro-claro">
                 {p.num}
               </span>
-              <h3 className="mb-[0.6rem] font-sans text-[1.15rem] font-semibold uppercase leading-[1.25] tracking-[0.08em] text-petroleo">
+              <h3 className="mb-[0.6rem] font-sans text-[1.15rem] font-semibold uppercase leading-[1.25] tracking-[0.08em] text-petroleo transition-colors duration-300 group-hover:text-off">
                 {p.titulo}
               </h3>
-              <p className="text-[0.95rem] leading-[1.55] text-texto-2">{p.texto}</p>
+              <p className="text-[0.95rem] leading-[1.55] text-texto-2 transition-colors duration-300 group-hover:text-texto-sobre-escuro">
+                {p.texto}
+              </p>
             </article>
           ))}
-        </Reveal>
+        </div>
       </div>
     </section>
   );

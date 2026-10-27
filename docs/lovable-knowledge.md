@@ -37,7 +37,7 @@ Audience: people dealing with inheritance, estate planning, divorce or family as
 - Hero photo (`FotoArco` in `Abertura.tsx`): Claudia's cut-out photo rises out of a petróleo arch (rounded top, subtle radial gradient) outlined by a concentric 1px gold rule 12px away; her head breaks above the arch and the bottom of her body fades into petróleo. On desktop the arch rises out of the petróleo band of the next section (no panel behind it), and a gold rule runs from the CTA button to the arch, ending in a diamond. On mobile the photo comes BEFORE the text, waist-up. The photo is colour-graded to the arch (cooler shadows, soft warm rim light): keep that grade if the photo is replaced. The arch and the round WhatsApp button are the only rounded shapes on the site: don't reuse the arch elsewhere unless asked.
 - Section rhythm: alternate `bg-off` and `bg-neutro`, with dark `bg-petroleo` / `bg-petroleo-2` bands for authority, method and trust blocks. Use the `section-y` utility for vertical padding and `wrap` for the 1200px container.
 - Buttons: use `<BotaoLink>` / `<BotaoWhatsapp>` from `primitivos.tsx` with variants `ouro` (primary), `contorno` (outline on light), `claro` (outline on dark), `topo` (header). Uppercase, letter-spaced, no radius.
-- Motion: only the subtle fade-up `<Reveal>` on scroll. Respect `prefers-reduced-motion`.
+- Motion: the subtle fade-up `<Reveal>` on scroll. Exception: the Diferenciais cards (I–IV) enter one by one, 150ms apart (`useVisivel` in `primitivos.tsx`), and on mouse hover a card inverts to `bg-petroleo` with numeral `ouro-claro`, title `off` and text `texto-sobre-escuro` (no hover effect on touch screens). Respect `prefers-reduced-motion`.
 - Light theme only. No dark mode toggle.
 
 ### Content and legal rules (Brazilian Bar — OAB)
@@ -78,7 +78,7 @@ Público: pessoas lidando com herança, planejamento sucessório, divórcio ou p
 - Foto do hero (`FotoArco` em `Abertura.tsx`): a foto recortada sai de um arco petróleo (topo arredondado, degradê radial sutil) contornado por um filete dourado de 1px a 12px de distância; a cabeça ultrapassa o arco e a base do corpo se dissolve no petróleo. No desktop o arco nasce da faixa petróleo da seção seguinte (sem painel atrás) e um filete dourado sai do botão até o arco, terminando num losango. No celular a foto vem ANTES do texto, em meio corpo. A foto tem tratamento de cor para o arco (sombras mais frias, luz de recorte quente e suave): manter se a foto for trocada. O arco e o botão redondo do WhatsApp são as únicas formas arredondadas do site.
 - Ritmo: alternar `bg-off` e `bg-neutro`, com faixas escuras `bg-petroleo` / `bg-petroleo-2`. `section-y` para o respiro vertical e `wrap` para o container de 1200px.
 - Botões: `<BotaoLink>` / `<BotaoWhatsapp>` com variantes `ouro`, `contorno`, `claro`, `topo`.
-- Animação: só o `<Reveal>` sutil ao rolar. Respeitar `prefers-reduced-motion`.
+- Animação: o `<Reveal>` sutil ao rolar. Exceção: os cards de Diferenciais (I–IV) entram um a um, com 150ms de intervalo (`useVisivel` em `primitivos.tsx`), e no hover do mouse o card inverte para `bg-petroleo` com numeral `ouro-claro`, título `off` e texto `texto-sobre-escuro` (sem efeito em telas de toque). Respeitar `prefers-reduced-motion`.
 - Só tema claro.
 
 ### Regras de conteúdo (OAB)

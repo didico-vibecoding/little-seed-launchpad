@@ -193,3 +193,34 @@ export function ListaLosango({
     </ul>
   );
 }
+
+/* ------------------------------------------------------------
+   useVisivel — true quando o elemento entra na tela (uma vez só)
+   Use para animar filhos em sequência (ver Diferenciais).
+   ------------------------------------------------------------ */
+export function useVisivel<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [visivel, setVisivel] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!("IntersectionObserver" in window)) {
+      setVisivel(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entradas) => {
+        if (entradas.some((e) => e.isIntersecting)) {
+          setVisivel(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return { ref, visivel };
+}
