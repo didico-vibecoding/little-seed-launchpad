@@ -69,7 +69,7 @@ export function Hero() {
             Patrimônio, herança e relações familiares envolvem decisões cujos efeitos permanecem por
             muitos anos. Conduzi-las exige conhecimento técnico, análise individual e estratégia.
           </p>
-          <div className="mt-10 flex flex-wrap gap-[0.85rem]">
+          <div className="mt-10 flex flex-wrap justify-center gap-[0.85rem] min-[861px]:justify-start">
             <BotaoWhatsapp variante="ouro">Agendar atendimento</BotaoWhatsapp>
           </div>
         </div>
