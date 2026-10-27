@@ -1,6 +1,8 @@
 import fotoHero from "@/assets/claudia-hero.webp";
 import fotoSobre from "@/assets/claudia-sobre.webp";
 
+import type { CSSProperties } from "react";
+
 import { cn } from "@/lib/utils";
 
 import { BotaoWhatsapp, Eyebrow, Filete, Reveal } from "../primitivos";
@@ -8,16 +10,17 @@ import { BotaoWhatsapp, Eyebrow, Filete, Reveal } from "../primitivos";
 /* ===================== HERO ===================== */
 
 /**
- * Foto da Dra. Claudia saindo de um arco petróleo, contornado por um filete
- * dourado. A cabeça ultrapassa o topo do arco e a base da foto é cortada
- * pela borda do bloco. Mobile: meio corpo. Desktop: até os joelhos.
+ * Foto da Dra. Claudia dentro de um arco petróleo, contornado por um filete
+ * dourado. A cabeça ultrapassa o topo do arco; a base do corpo se dissolve no
+ * petróleo. No desktop o arco nasce da faixa petróleo da seção seguinte.
+ * Mobile: meio corpo, antes do texto. Desktop: até os joelhos.
  */
 function FotoArco({ className }: { className?: string }) {
   return (
     <div
       className={cn(
         "relative mx-auto aspect-[4/5] w-full max-w-[320px] overflow-hidden",
-        "min-[861px]:aspect-auto min-[861px]:h-[min(78vh,680px)] min-[861px]:max-w-[440px]",
+        "min-[861px]:aspect-auto min-[861px]:h-[min(78vh,680px)] min-[861px]:max-w-none",
         className,
       )}
     >
@@ -26,10 +29,14 @@ function FotoArco({ className }: { className?: string }) {
         aria-hidden="true"
         className="absolute inset-x-0 bottom-0 h-[calc(82%+12px)] rounded-t-full border border-b-0 border-ouro"
       />
-      {/* Arco petróleo */}
+      {/* Arco petróleo: luz suave atrás da cabeça, base em petróleo puro para emendar na faixa */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-3 bottom-0 h-[82%] rounded-t-full bg-[radial-gradient(110%_70%_at_50%_35%,var(--petroleo-3),var(--petroleo)_70%)]"
+        className="absolute inset-x-3 bottom-0 h-[82%] rounded-t-full"
+        style={{
+          background:
+            "linear-gradient(to top, var(--petroleo) 0%, transparent 40%), radial-gradient(90% 55% at 50% 30%, var(--petroleo-3), var(--petroleo) 75%)",
+        }}
       />
       <img
         src={fotoHero}
@@ -37,7 +44,12 @@ function FotoArco({ className }: { className?: string }) {
         width={715}
         height={1506}
         fetchPriority="high"
-        className="absolute top-[4%] left-1/2 h-[155%] w-auto max-w-none -translate-x-1/2 min-[861px]:top-[3%] min-[861px]:h-[122%]"
+        className="absolute top-[5%] left-1/2 h-[140%] w-auto max-w-none -translate-x-1/2 min-[861px]:top-[3%] min-[861px]:h-[112%]"
+      />
+      {/* A base do corpo se dissolve no petróleo */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-3 bottom-0 h-[24%] bg-gradient-to-t from-petroleo via-petroleo/70 to-transparent"
       />
     </div>
   );
@@ -46,12 +58,10 @@ function FotoArco({ className }: { className?: string }) {
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-off pt-[clamp(2rem,6vw,3rem)] min-[861px]:pt-[clamp(3.5rem,8vw,6.5rem)]">
-      {/* Painel neutro à direita (só desktop) */}
       <div
-        aria-hidden="true"
-        className="absolute inset-y-0 right-0 hidden w-[46%] bg-gradient-to-b from-neutro to-neutro/35 min-[861px]:block"
-      />
-      <div className="wrap relative grid items-end gap-[clamp(2rem,4vw,3rem)] min-[861px]:grid-cols-[1.05fr_0.95fr]">
+        className="wrap relative grid items-end gap-[var(--hero-gap)] min-[861px]:grid-cols-2"
+        style={{ "--hero-gap": "clamp(2rem, 4vw, 3rem)" } as CSSProperties}
+      >
         <div className="order-2 pb-[clamp(3.5rem,8vw,6.5rem)] min-[861px]:order-1 min-[861px]:pb-[clamp(4.5rem,9vw,8rem)]">
           <Eyebrow>Advocacia · Florianópolis, SC</Eyebrow>
           <p className="mt-6 mb-[0.35rem] font-serif text-nome font-light tracking-[0.02em] text-petroleo">
@@ -69,8 +79,21 @@ export function Hero() {
             Patrimônio, herança e relações familiares envolvem decisões cujos efeitos permanecem por
             muitos anos. Conduzi-las exige conhecimento técnico, análise individual e estratégia.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-[0.85rem] min-[861px]:justify-start">
-            <BotaoWhatsapp variante="ouro">Agendar atendimento</BotaoWhatsapp>
+          <div className="mt-10 flex items-center justify-center min-[861px]:justify-start">
+            <BotaoWhatsapp variante="ouro" className="shrink-0">
+              Agendar atendimento
+            </BotaoWhatsapp>
+            {/* Elo com a foto: o filete segue do botão até o arco e termina num losango */}
+            <span
+              aria-hidden="true"
+              className="relative ml-6 hidden h-px flex-1 bg-ouro min-[861px]:block"
+              style={{ marginRight: "calc(-1 * var(--hero-gap))" }}
+            >
+              <span
+                className="absolute top-1/2 right-0 block size-[7px] bg-ouro"
+                style={{ transform: "translate(50%, -50%) rotate(45deg)" }}
+              />
+            </span>
           </div>
         </div>
         <FotoArco className="order-1 min-[861px]:order-2" />
