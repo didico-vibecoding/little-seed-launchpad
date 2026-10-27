@@ -157,9 +157,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Karla:wght@300;400;500;600&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", sizes: "any" },
-      { rel: "icon", href: "/favicon-64.png", type: "image/png" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      // Ícones em caminho próprio (/icones/): a hospedagem do Lovable substitui o
+      // /favicon.ico pelo "site icon" das configurações de publicação.
+      { rel: "icon", href: "/icones/ca-32.png?v=2", type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: "/icones/ca-48.png?v=2", type: "image/png", sizes: "48x48" },
+      { rel: "icon", href: "/icones/ca-192.png?v=2", type: "image/png", sizes: "192x192" },
+      { rel: "apple-touch-icon", href: "/icones/ca-180.png?v=2", sizes: "180x180" },
+      { rel: "manifest", href: "/icones/site.webmanifest" },
       ...(SITE.url ? [{ rel: "canonical", href: SITE.url }] : []),
     ],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(schemaEscritorio) }],
