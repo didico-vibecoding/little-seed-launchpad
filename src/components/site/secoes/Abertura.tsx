@@ -119,9 +119,9 @@ export function Sobre() {
           <span aria-hidden="true" className="absolute inset-0 border border-ouro opacity-55" />
           <img
             src={fotoSobre}
-            alt="Retrato profissional da advogada Claudia Althoff"
-            width={575}
-            height={720}
+            alt="Claudia Althoff de beca, segurando uma pasta com a marca do escritório"
+            width={960}
+            height={1200}
             loading="lazy"
             className="relative w-full bg-off object-cover"
           />
