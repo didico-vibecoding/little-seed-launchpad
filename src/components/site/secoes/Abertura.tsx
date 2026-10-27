@@ -1,19 +1,58 @@
 import fotoHero from "@/assets/claudia-hero.webp";
 import fotoSobre from "@/assets/claudia-sobre.webp";
 
+import { cn } from "@/lib/utils";
+
 import { BotaoWhatsapp, Eyebrow, Filete, Reveal } from "../primitivos";
 
 /* ===================== HERO ===================== */
-export function Hero() {
+
+/**
+ * Foto da Dra. Claudia saindo de um arco petróleo, contornado por um filete
+ * dourado. A cabeça ultrapassa o topo do arco e a base da foto é cortada
+ * pela borda do bloco. Mobile: meio corpo. Desktop: até os joelhos.
+ */
+function FotoArco({ className }: { className?: string }) {
   return (
-    <section className="section-y relative overflow-hidden bg-off">
-      {/* Painel neutro à direita (desktop) / na metade de baixo (mobile) */}
+    <div
+      className={cn(
+        "relative mx-auto aspect-[4/5] w-full max-w-[320px] overflow-hidden",
+        "min-[861px]:aspect-auto min-[861px]:h-[min(78vh,680px)] min-[861px]:max-w-[440px]",
+        className,
+      )}
+    >
+      {/* Filete dourado concêntrico ao arco */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-b from-neutro to-neutro/35 min-[861px]:inset-y-0 min-[861px]:right-0 min-[861px]:left-auto min-[861px]:h-full min-[861px]:w-[46%]"
+        className="absolute inset-x-0 bottom-0 h-[calc(82%+12px)] rounded-t-full border border-b-0 border-ouro"
       />
-      <div className="wrap relative grid items-end gap-[clamp(1rem,4vw,3rem)] pt-[clamp(2.25rem,7vw,3rem)] min-[861px]:grid-cols-[1.05fr_0.95fr] min-[861px]:pt-[clamp(3rem,7vw,5rem)]">
-        <div className="pb-8 min-[861px]:pb-[clamp(3.5rem,8vw,6rem)]">
+      {/* Arco petróleo */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-3 bottom-0 h-[82%] rounded-t-full bg-[radial-gradient(110%_70%_at_50%_35%,var(--petroleo-3),var(--petroleo)_70%)]"
+      />
+      <img
+        src={fotoHero}
+        alt="Claudia Althoff, advogada especializada em Direito de Família e Sucessões"
+        width={550}
+        height={1115}
+        fetchPriority="high"
+        className="absolute top-[4%] left-1/2 h-[155%] w-auto max-w-none -translate-x-1/2 min-[861px]:top-[3%] min-[861px]:h-[122%]"
+      />
+    </div>
+  );
+}
+
+export function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-off pt-[clamp(2rem,6vw,3rem)] min-[861px]:pt-[clamp(3.5rem,8vw,6.5rem)]">
+      {/* Painel neutro à direita (só desktop) */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 right-0 hidden w-[46%] bg-gradient-to-b from-neutro to-neutro/35 min-[861px]:block"
+      />
+      <div className="wrap relative grid items-end gap-[clamp(2rem,4vw,3rem)] min-[861px]:grid-cols-[1.05fr_0.95fr]">
+        <div className="order-2 pb-[clamp(3.5rem,8vw,6.5rem)] min-[861px]:order-1 min-[861px]:pb-[clamp(4.5rem,9vw,8rem)]">
           <Eyebrow>Advocacia · Florianópolis, SC</Eyebrow>
           <p className="mt-6 mb-[0.35rem] font-serif text-nome font-light tracking-[0.02em] text-petroleo">
             Claudia Althoff
@@ -34,16 +73,7 @@ export function Hero() {
             <BotaoWhatsapp variante="ouro">Agendar atendimento</BotaoWhatsapp>
           </div>
         </div>
-        <div className="relative flex items-end justify-center">
-          <img
-            src={fotoHero}
-            alt="Claudia Althoff, advogada especializada em Direito de Família e Sucessões"
-            width={563}
-            height={1150}
-            fetchPriority="high"
-            className="max-h-[400px] w-auto object-contain drop-shadow-[0_24px_48px_oklch(0.315_0.035_230/0.14)] min-[861px]:max-h-[min(76vh,660px)]"
-          />
-        </div>
+        <FotoArco className="order-1 min-[861px]:order-2" />
       </div>
     </section>
   );

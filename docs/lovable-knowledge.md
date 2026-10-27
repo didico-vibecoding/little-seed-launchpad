@@ -34,6 +34,7 @@ Audience: people dealing with inheritance, estate planning, divorce or family as
 - Typography: **Cormorant Garamond** (`font-serif`) for headings, name, quotes and numbers; **Karla** (`font-sans`) for body and UI. Headings are weight 300–500, never bold. Fluid sizes: `text-nome`, `text-h1`, `text-h2`, `text-quote`, `text-quote-lg`, `text-titulos`, `text-artigo`.
 - Small uppercase labels with wide letter-spacing (`eyebrow` utility) above every section title, followed by a 52px gold rule (`filete` utility).
 - Shapes: square corners everywhere (radius 0). Cards sit in grids separated by 1px lines (`grade-filetes`). List bullets are small rotated gold squares (`losango`). Quotes use a 2px gold left border.
+- Hero photo (`FotoArco` in `Abertura.tsx`): Claudia's cut-out photo rises out of a petróleo arch (rounded top, subtle radial gradient) outlined by a concentric 1px gold rule 12px away; her head breaks above the arch and the bottom is cropped by the block. On mobile the photo comes BEFORE the text, waist-up; on desktop it sits in the right column, knee-up. The arch and the round WhatsApp button are the only rounded shapes on the site: don't reuse the arch elsewhere unless asked.
 - Section rhythm: alternate `bg-off` and `bg-neutro`, with dark `bg-petroleo` / `bg-petroleo-2` bands for authority, method and trust blocks. Use the `section-y` utility for vertical padding and `wrap` for the 1200px container.
 - Buttons: use `<BotaoLink>` / `<BotaoWhatsapp>` from `primitivos.tsx` with variants `ouro` (primary), `contorno` (outline on light), `claro` (outline on dark), `topo` (header). Uppercase, letter-spaced, no radius.
 - Motion: only the subtle fade-up `<Reveal>` on scroll. Respect `prefers-reduced-motion`.
@@ -74,6 +75,7 @@ Público: pessoas lidando com herança, planejamento sucessório, divórcio ou p
 - Tipografia: **Cormorant Garamond** (`font-serif`) para títulos, nome, citações e números; **Karla** (`font-sans`) para texto e interface. Títulos com peso 300–500, nunca negrito.
 - Rótulo pequeno em caixa alta (`eyebrow`) acima de cada título de seção, seguido de filete dourado de 52px (`filete`).
 - Formas: cantos retos em tudo. Cards em grade separados por linhas de 1px (`grade-filetes`). Marcador de lista em losango dourado (`losango`). Citações com borda esquerda dourada de 2px.
+- Foto do hero (`FotoArco` em `Abertura.tsx`): a foto recortada sai de um arco petróleo (topo arredondado, degradê radial sutil) contornado por um filete dourado de 1px a 12px de distância; a cabeça ultrapassa o arco e a base é cortada pelo bloco. No celular a foto vem ANTES do texto, em meio corpo; no desktop fica na coluna da direita, até os joelhos. O arco e o botão redondo do WhatsApp são as únicas formas arredondadas do site.
 - Ritmo: alternar `bg-off` e `bg-neutro`, com faixas escuras `bg-petroleo` / `bg-petroleo-2`. `section-y` para o respiro vertical e `wrap` para o container de 1200px.
 - Botões: `<BotaoLink>` / `<BotaoWhatsapp>` com variantes `ouro`, `contorno`, `claro`, `topo`.
 - Animação: só o `<Reveal>` sutil ao rolar. Respeitar `prefers-reduced-motion`.
