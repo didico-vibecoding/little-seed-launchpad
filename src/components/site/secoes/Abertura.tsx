@@ -34,8 +34,8 @@ function FotoArco({ className }: { className?: string }) {
       <img
         src={fotoHero}
         alt="Claudia Althoff, advogada especializada em Direito de Família e Sucessões"
-        width={550}
-        height={1115}
+        width={715}
+        height={1506}
         fetchPriority="high"
         className="absolute top-[4%] left-1/2 h-[155%] w-auto max-w-none -translate-x-1/2 min-[861px]:top-[3%] min-[861px]:h-[122%]"
       />
