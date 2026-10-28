@@ -15,12 +15,9 @@ Levantado a partir do HTML original (`claudia-althoff-advocacia.html`) e do manu
 | Diferenciais (I–IV) | Pronto |
 | Como funciona o atendimento (01–04) | Pronto |
 | Bloco de confiança | Pronto |
-| Conteúdo (card do artigo na home) | Pronto |
-| Página do artigo `/conteudo/uniao-estavel-e-patrimonio` | **Nova** — antes o artigo abria dentro da home |
-| Lista de artigos `/conteudo` | **Nova** |
 | FAQ (6 perguntas) | Pronto — 1 resposta pendente |
 | CTA final + rodapé + botão flutuante de WhatsApp | Pronto |
-| SEO: title, description, Open Graph, schema.org (Attorney, FAQPage, Article) | Pronto — faltam URL e data |
+| SEO: title, description, Open Graph, schema.org (Attorney, FAQPage) | Pronto — faltam URL |
 | Página 404 com a identidade do site | **Nova** |
 | Favicon, apple-touch-icon e imagem de compartilhamento (og-image) | **Novos**, gerados a partir da logo oficial |
 
@@ -29,16 +26,14 @@ Levantado a partir do HTML original (`claudia-althoff-advocacia.html`) e do manu
 1. **WhatsApp**: o número original tinha 8 dígitos (9982-4398) e foi aplicado como **(47) 99982-4398**. Confirmar. → `src/config/site.ts`
 2. **Lista de Direito Civil**: confirmar cada matéria antes de publicar (publicidade jurídica não pode anunciar área sem atuação). → `src/components/site/secoes/Atuacao.tsx`
 3. **FAQ "É possível realizar atendimento online?"**: falta dizer se há atendimento online e/ou presencial. → `src/components/site/secoes/Fechamento.tsx`
-4. **Data de publicação do artigo** (`publicadoEm`). → `src/content/artigos.ts`
-5. **Instagram @claudialthoff** e **e-mail**: conferir se estão ativos.
+4. **Instagram @claudialthoff** e **e-mail**: conferir se estão ativos.
 
 ## 🛠️ Pendente técnico (dá para fazer no Lovable)
 
-1. **Blog editável**: migrar os artigos para uma tabela no Lovable Cloud (Supabase) com área de administração protegida por login. Hoje é um arquivo no código.
-2. **Domínio**: conectar o domínio e preencher `SITE.url` → ativa canonical, og:url, og:image e as URLs do schema.
-3. **sitemap.xml**: gerar depois que o domínio estiver definido.
-4. **Política de Privacidade / LGPD**: necessária se entrar analytics, pixel ou formulário.
-5. **Analytics** (GA4 ou similar), se a cliente quiser medir acessos e cliques no WhatsApp.
+1. **Domínio**: conectar o domínio e preencher `SITE.url` → ativa canonical, og:url, og:image e as URLs do schema.
+2. **sitemap.xml**: gerar depois que o domínio estiver definido.
+3. **Política de Privacidade / LGPD**: necessária se entrar analytics, pixel ou formulário.
+4. **Analytics** (GA4 ou similar), se a cliente quiser medir acessos e cliques no WhatsApp.
 
 ## 🔧 Correções feitas na migração (inconsistências óbvias)
 

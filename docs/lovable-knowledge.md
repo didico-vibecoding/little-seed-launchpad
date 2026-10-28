@@ -10,7 +10,7 @@
 ## 🇺🇸 English (paste this into Lovable)
 
 ### Project
-Institutional website + blog for **Claudia Althoff Advocacia**, a law practice in Florianópolis/SC (Brazil) led by attorney Claudia Althoff (Master's, PhD, professor; OAB/SC 9920). Main practice: Inheritance & Estate (Sucessões e Patrimônio), Family Law, and Civil Law in support. All site copy is in **Brazilian Portuguese**.
+Institutional website for **Claudia Althoff Advocacia**, a law practice in Florianópolis/SC (Brazil) led by attorney Claudia Althoff (Master's, PhD, professor; OAB/SC 9920). Main practice: Inheritance & Estate (Sucessões e Patrimônio), Family Law, and Civil Law in support. All site copy is in **Brazilian Portuguese**.
 
 Audience: people dealing with inheritance, estate planning, divorce or family assets — usually at a moment of doubt or change. Tone: sober, precise, warm but never salesy. Academic authority without jargon.
 
@@ -54,7 +54,7 @@ Audience: people dealing with inheritance, estate planning, divorce or family as
 ## 🇧🇷 Português (referência)
 
 ### Projeto
-Site institucional + blog da **Claudia Althoff Advocacia**, escritório em Florianópolis/SC liderado pela advogada Claudia Althoff (mestre, doutora, professora; OAB/SC 9920). Atuação principal: Sucessões e Patrimônio, Direito de Família e, em apoio, Direito Civil. Todo o texto do site é em **português do Brasil**.
+Site institucional da **Claudia Althoff Advocacia**, escritório em Florianópolis/SC liderado pela advogada Claudia Althoff (mestre, doutora, professora; OAB/SC 9920). Atuação principal: Sucessões e Patrimônio, Direito de Família e, em apoio, Direito Civil. Todo o texto do site é em **português do Brasil**.
 
 Público: pessoas lidando com herança, planejamento sucessório, divórcio ou patrimônio da família — geralmente num momento de dúvida ou mudança. Tom: sóbrio, preciso, acolhedor, nunca vendedor. Autoridade acadêmica sem juridiquês.
 
