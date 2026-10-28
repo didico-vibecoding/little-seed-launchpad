@@ -10,7 +10,7 @@
 ## 🇺🇸 English (paste this into Lovable)
 
 ### Project
-Institutional website + blog for **Claudia Althoff Advocacia**, a law practice in Florianópolis/SC (Brazil) led by attorney Claudia Althoff (Master's, PhD, professor; OAB/SC 9920). Main practice: Inheritance & Estate (Sucessões e Patrimônio), Family Law, and Civil Law in support. All site copy is in **Brazilian Portuguese**.
+Institutional website for **Claudia Althoff Advocacia**, a law practice in Florianópolis/SC (Brazil) led by attorney Claudia Althoff (Master's, PhD, professor; OAB/SC 9920). Main practice: Inheritance & Estate (Sucessões e Patrimônio), Family Law, and Civil Law in support. All site copy is in **Brazilian Portuguese**.
 
 Audience: people dealing with inheritance, estate planning, divorce or family assets — usually at a moment of doubt or change. Tone: sober, precise, warm but never salesy. Academic authority without jargon.
 
@@ -20,7 +20,6 @@ Audience: people dealing with inheritance, estate planning, divorce or family as
 - shadcn/ui components are available in `src/components/ui/` and already inherit the brand tokens (radius 0, petróleo primary, gold ring).
 - Site components: `src/components/site/` (header, footer, primitives) and `src/components/site/secoes/` (home sections).
 - Contact data, SEO and nav: `src/config/site.ts` — never hardcode phone, e-mail, WhatsApp URL or address in components.
-- Blog articles: `src/content/artigos.ts` (temporary; will move to a database).
 - `cn()` in `src/lib/utils.ts` has a custom tailwind-merge config. When adding a new font-size or tracking token to `styles.css`, register it there too, otherwise `cn()` will drop the class.
 
 ### Visual identity — rules
@@ -47,16 +46,15 @@ Audience: people dealing with inheritance, estate planning, divorce or family as
 - Write in Brazilian Portuguese, formal-but-human, short sentences, no legalese walls.
 
 ### Roadmap (next steps in Lovable)
-1. Blog: move `src/content/artigos.ts` to a Lovable Cloud (Supabase) table `artigos` (slug, tema, titulo, lead, descricao, corpo, publicado_em, publicado) with a simple protected admin page to create/edit posts. Keep the current card and article page design.
-2. Fill the pending items listed in `docs/inventario.md`.
-3. Connect the custom domain and fill `SITE.url` in `src/config/site.ts` (enables canonical, og:url and og:image).
+1. Fill the pending items listed in `docs/inventario.md`.
+2. Connect the custom domain and fill `SITE.url` in `src/config/site.ts` (enables canonical, og:url and og:image).
 
 ---
 
 ## 🇧🇷 Português (referência)
 
 ### Projeto
-Site institucional + blog da **Claudia Althoff Advocacia**, escritório em Florianópolis/SC liderado pela advogada Claudia Althoff (mestre, doutora, professora; OAB/SC 9920). Atuação principal: Sucessões e Patrimônio, Direito de Família e, em apoio, Direito Civil. Todo o texto do site é em **português do Brasil**.
+Site institucional da **Claudia Althoff Advocacia**, escritório em Florianópolis/SC liderado pela advogada Claudia Althoff (mestre, doutora, professora; OAB/SC 9920). Atuação principal: Sucessões e Patrimônio, Direito de Família e, em apoio, Direito Civil. Todo o texto do site é em **português do Brasil**.
 
 Público: pessoas lidando com herança, planejamento sucessório, divórcio ou patrimônio da família — geralmente num momento de dúvida ou mudança. Tom: sóbrio, preciso, acolhedor, nunca vendedor. Autoridade acadêmica sem juridiquês.
 
@@ -66,7 +64,6 @@ Público: pessoas lidando com herança, planejamento sucessório, divórcio ou p
 - Componentes shadcn/ui em `src/components/ui/` já herdam os tokens da marca.
 - Componentes do site: `src/components/site/` e `src/components/site/secoes/`.
 - Contato, SEO e menu: `src/config/site.ts` — nunca escrever telefone, e-mail, link do WhatsApp ou endereço direto nos componentes.
-- Artigos do blog: `src/content/artigos.ts` (provisório; vai para banco de dados).
 - O `cn()` em `src/lib/utils.ts` tem configuração própria do tailwind-merge. Ao criar um token novo de tamanho de fonte ou tracking, registrar lá também.
 
 ### Identidade visual — regras
@@ -87,6 +84,5 @@ Público: pessoas lidando com herança, planejamento sucessório, divórcio ou p
 - Todos os CTAs levam ao WhatsApp via `whatsappUrl`.
 
 ### Próximos passos no Lovable
-1. Blog: migrar `src/content/artigos.ts` para uma tabela `artigos` no Lovable Cloud (Supabase) com uma página de administração protegida para criar/editar posts, mantendo o visual atual.
-2. Resolver os pendentes de `docs/inventario.md`.
-3. Conectar o domínio e preencher `SITE.url` em `src/config/site.ts`.
+1. Resolver os pendentes de `docs/inventario.md`.
+2. Conectar o domínio e preencher `SITE.url` em `src/config/site.ts`.
