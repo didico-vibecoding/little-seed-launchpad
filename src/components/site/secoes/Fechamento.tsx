@@ -1,4 +1,4 @@
-import { BotaoWhatsapp, Eyebrow, Filete, Reveal } from "../primitivos";
+import { BotaoWhatsapp, CabecalhoSecao, Eyebrow, Filete, Reveal } from "../primitivos";
 
 /* ===================== FAQ ===================== */
 const PERGUNTAS = [
