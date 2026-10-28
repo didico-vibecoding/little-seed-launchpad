@@ -51,6 +51,5 @@ export const NAV = [
   { id: "situacoes", label: "Como posso ajudar", desktop: false },
   { id: "diferenciais", label: "Diferenciais", desktop: true },
   { id: "metodo", label: "Atendimento", desktop: true },
-  { id: "conteudo", label: "Conteúdo", desktop: true },
   { id: "faq", label: "Dúvidas", labelMobile: "Dúvidas frequentes", desktop: true },
 ] as const;

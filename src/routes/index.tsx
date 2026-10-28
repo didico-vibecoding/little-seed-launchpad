@@ -8,7 +8,7 @@ import {
   Metodo,
   Situacoes,
 } from "@/components/site/secoes/Atuacao";
-import { Conteudo, CtaFinal, Faq, FAQ_SCHEMA } from "@/components/site/secoes/Fechamento";
+import { CtaFinal, Faq, FAQ_SCHEMA } from "@/components/site/secoes/Fechamento";
 
 // Título, descrição e og vêm de __root.tsx (src/config/site.ts).
 export const Route = createFileRoute("/")({
@@ -42,7 +42,6 @@ function Home() {
       <Diferenciais />
       <Metodo />
       <Confianca />
-      <Conteudo />
       <Faq />
       <CtaFinal />
     </>
