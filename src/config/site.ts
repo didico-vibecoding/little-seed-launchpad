@@ -11,8 +11,8 @@ export const SITE = {
     "Advocacia especializada em Direito de Família e Sucessões, com atuação estratégica também em Direito Civil. Inventário, partilha, planejamento sucessório e organização patrimonial em Florianópolis, SC.",
   descricaoCurta:
     "Sucessões, patrimônio e família conduzidos com estratégia e análise individual. Florianópolis, SC.",
-  // PENDENTE: preencher com o domínio definitivo após publicar (ex.: https://althoffadvocacia.com)
-  url: "",
+  // Endereço oficial (sem barra no final). Usado na URL canônica, no Open Graph e no sitemap.
+  url: "https://claudialthoffadvocacia.com.br",
   ogImage: "/og-image.jpg",
   themeColor: "#1E3540",
 } as const;

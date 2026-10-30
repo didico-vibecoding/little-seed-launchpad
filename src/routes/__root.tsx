@@ -143,8 +143,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       // Até lá, a hospedagem do Lovable injeta a prévia de compartilhamento.
       ...(SITE.url
         ? [
-            { property: "og:url", content: SITE.url },
+            { property: "og:url", content: `${SITE.url}/` },
             { property: "og:image", content: `${SITE.url}${SITE.ogImage}` },
+            { property: "og:image:width", content: "1200" },
+            { property: "og:image:height", content: "630" },
+            { property: "og:image:alt", content: "Logotipo Claudia Althoff Advocacia" },
+            { name: "twitter:image", content: `${SITE.url}${SITE.ogImage}` },
           ]
         : []),
       { name: "twitter:card", content: "summary_large_image" },
@@ -164,7 +168,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/icones/ca-192.png?v=2", type: "image/png", sizes: "192x192" },
       { rel: "apple-touch-icon", href: "/icones/ca-180.png?v=2", sizes: "180x180" },
       { rel: "manifest", href: "/icones/site.webmanifest" },
-      ...(SITE.url ? [{ rel: "canonical", href: SITE.url }] : []),
+      ...(SITE.url ? [{ rel: "canonical", href: `${SITE.url}/` }] : []),
     ],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(schemaEscritorio) }],
   }),
